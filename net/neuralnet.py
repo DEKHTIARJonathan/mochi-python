@@ -34,6 +34,7 @@ class NeuralNet:
 
     def predict(self, batch_x):
         activations = self.forward_pass_batch(batch_x)
+        print([utils.softmax(a) for a in activations])
         return np.array([max(range(len(activation)), key=lambda i: activation[i]) for activation in activations])
 
     def validation_set_val(self, validation_data):
